@@ -10,6 +10,8 @@
 #include <Wire.h>
 #include <avr/pgmspace.h>
 
+#include "TemperatureDecoupler.h"
+
 #define debuggSCK  false
 
 //Direcciones I2C
@@ -91,9 +93,11 @@
 
 #define EXT_ANT "1" // antena externa
 #define INT_ANT "0" // antena interna
-                  
+
+
 class SmartCitizen {
-  public:  
+  public:
+
     void begin();
     boolean RTCadjust(char *time);
     char* RTCtime();
@@ -141,6 +145,10 @@ class SmartCitizen {
     unsigned long _lastReadTime;
     short int _lastHumidity;
     short int _lastTemperature;
+
+	uint16_t _prevBattery;
+	short int batteryHeatupFactor;
+
     float average(int anaPin);
     char* itoa(uint32_t number);
     void writeMCP(byte deviceaddress, byte address, int data );
@@ -158,6 +166,10 @@ class SmartCitizen {
     boolean sendCommand(const __FlashStringHelper *command,
                     boolean isMultipartCommand, // Has default value
                     const char *expectedResponse); // Has default value
+
+	
+	TemperatureDecoupler decoupler; //use this object to compensate for charger generated heat affecting temp values
+
 };
 
 

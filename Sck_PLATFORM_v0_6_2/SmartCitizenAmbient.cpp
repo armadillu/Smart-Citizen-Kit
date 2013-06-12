@@ -44,6 +44,7 @@ void SmartCitizen::begin() {
   Wire.begin();
   TWBR = ((F_CPU / TWI_FREQ) - 16) / 2;  
   DHT22(DHT22_PIN);
+	decoupler.setup();
 }
 
 float SmartCitizen::average(int anaPin) {
@@ -649,11 +650,16 @@ void SmartCitizen::getMICS(unsigned long time0, unsigned long time1){
       writeintEEPROM(EE_ADDR_FREE_ADDR_MEASURES, FREE_ADDR_MEASURES);
     }
   else check_data();
-  
+
+	 uint16_t battery = getBattery();
+	 decoupler.update(battery);
+
   if (dhtRead())
   {
-    writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getTemperatureC())); // C
-    writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getHumidity())); // %
+    writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa( (int)getTemperatureC() - (int) decoupler.getCompensation())); // C
+    //writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa( getHumidity())); // %
+	  writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa( decoupler.getCompensation() )); // humidity will report raw temperature, for debug (oriol)
+
   }
   else 
   {
@@ -664,11 +670,14 @@ void SmartCitizen::getMICS(unsigned long time0, unsigned long time1){
   getMICS(4000, 30000);
   writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getCO())); //ppm
   writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getNO2())); //ppm
-  writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getLight())); //mV
+  //writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getLight())); //mV //oriol light shows raw temp
+	 writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa((int)getTemperatureC()));
+
   writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getNoise())); //mV
-  writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getBattery())); //%
+  writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(battery)); //%
   writeCommand(EE_ADDR_FREE_ADDR_MEASURES, itoa(getPanel()));  // %
-      
+
+
   if (mode != 1)
        {
          writeCommand(EE_ADDR_FREE_ADDR_MEASURES, "0");  //Wifi Nets

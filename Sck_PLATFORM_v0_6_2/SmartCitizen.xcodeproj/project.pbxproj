@@ -1,0 +1,90 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		BB930512175C9FB500EC0935 /* ConfigDefault.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = ConfigDefault.ino; sourceTree = "<group>"; };
+		BB930513175C9FB500EC0935 /* Sck_PLATFORM_v0_6_2.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = Sck_PLATFORM_v0_6_2.ino; sourceTree = "<group>"; };
+		BB930514175C9FB500EC0935 /* ServerUpdate.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = ServerUpdate.ino; sourceTree = "<group>"; };
+		BB930515175C9FB500EC0935 /* SmartCitizenAmbient.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = SmartCitizenAmbient.cpp; sourceTree = "<group>"; };
+		BB930516175C9FB500EC0935 /* SmartCitizenAmbient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = SmartCitizenAmbient.h; sourceTree = "<group>"; };
+		BB930517175C9FB500EC0935 /* TimerOne.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TimerOne.cpp; sourceTree = "<group>"; };
+		BB930518175C9FB500EC0935 /* TimerOne.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TimerOne.h; sourceTree = "<group>"; };
+		BB930519175C9FB500EC0935 /* updateSensors.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = updateSensors.ino; sourceTree = "<group>"; };
+		BB9BD8841764FDF400784FBF /* GhettoFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GhettoFilter.h; sourceTree = "<group>"; };
+		BBEBA598175CF85E0025F765 /* TemperatureDecoupler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureDecoupler.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		BB93050B175C9FA300EC0935 = {
+			isa = PBXGroup;
+			children = (
+				BB930512175C9FB500EC0935 /* ConfigDefault.ino */,
+				BB930513175C9FB500EC0935 /* Sck_PLATFORM_v0_6_2.ino */,
+				BB930514175C9FB500EC0935 /* ServerUpdate.ino */,
+				BB930515175C9FB500EC0935 /* SmartCitizenAmbient.cpp */,
+				BBEBA598175CF85E0025F765 /* TemperatureDecoupler.h */,
+				BB9BD8841764FDF400784FBF /* GhettoFilter.h */,
+				BB930516175C9FB500EC0935 /* SmartCitizenAmbient.h */,
+				BB930517175C9FB500EC0935 /* TimerOne.cpp */,
+				BB930518175C9FB500EC0935 /* TimerOne.h */,
+				BB930519175C9FB500EC0935 /* updateSensors.ino */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		BB93050C175C9FA300EC0935 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = BB93050F175C9FA300EC0935 /* Build configuration list for PBXProject "SmartCitizen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BB93050B175C9FA300EC0935;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		BB930510175C9FA300EC0935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		BB930511175C9FA300EC0935 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB93050F175C9FA300EC0935 /* Build configuration list for PBXProject "SmartCitizen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB930510175C9FA300EC0935 /* Debug */,
+				BB930511175C9FA300EC0935 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB93050C175C9FA300EC0935 /* Project object */;
+}
