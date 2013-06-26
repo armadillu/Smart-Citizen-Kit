@@ -3,8 +3,8 @@
 #include "SmartCitizenAmbient.h"
 
 
-//#define mySSID           ""  
-//#define myPassword       ""
+#define mySSID           "FABRICA"  
+#define myPassword       "nininini"
 #define wifiEncript      WPA2
 #define antenna          INT_ANT // ANTENNA INTEGRADA
 

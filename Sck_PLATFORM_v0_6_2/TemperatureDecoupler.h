@@ -9,7 +9,7 @@
 #ifndef SmartCitizen_TemperatureDecoupler_h
 #define SmartCitizen_TemperatureDecoupler_h
 
-#define BATTERY_HEATUP_MAX	13
+#define BATTERY_HEATUP_MAX	11
 
 #include <Arduino.h>
 #include "GhettoFilter.h"
@@ -29,13 +29,16 @@ class TemperatureDecoupler{
 		Serial.println( "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #" );
 
 		bool charging = false;
-
+		bool doNothing = false;
 		if (battery == _prevBattery){
-			charging = lastChargingState;
-			if(charging)
-				Serial.println( "Battery same val! charging!");
-			else
-				Serial.println( "Battery same val! dis-charging!");
+			//doNothing;
+			if ( battery > 980 ){
+				charging = true;
+				Serial.println( "Battery same val > 980! charging!");
+			}else{
+				charging = false;
+				Serial.println( "Battery same val < 980! NOT charging!");
+			}
 		}else{
 			if ( battery > _prevBattery || battery > 980 ){ //battery is charging!
 				Serial.println( "Battery charging!");
@@ -46,10 +49,12 @@ class TemperatureDecoupler{
 			}
 		}
 
-		if(charging)
-			filter.goUp();
-		else
-			filter.goDown();
+		if (!doNothing){
+			if(charging)
+				filter.goUp();
+			else
+				filter.goDown();
+		}
 
 		Serial.print(F("battery: ")); Serial.println( battery );
 		Serial.print(F("_prevBattery: ")); Serial.println( _prevBattery );
