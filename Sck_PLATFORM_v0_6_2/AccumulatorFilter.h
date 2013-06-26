@@ -1,20 +1,20 @@
 //
-//  GhettoFilter.h
-//  GhettoFilter
+//  AccumulatorFilter.h
+//  AccumulatorFilter
 //
 //  Created by Oriol Ferrer Mesià on 09/06/13.
 //
 //
 
-#ifndef GhettoFilter_GhettoFilter_h
-#define GhettoFilter_GhettoFilter_h
+#ifndef AccumulatorFilter_AccumulatorFilter_h
+#define AccumulatorFilter_AccumulatorFilter_h
 
 #define GHETTO_VAL	0.02f
-class GhettoFilter{
+class AccumulatorFilter{
 
 public:
 
-	GhettoFilter(){
+	AccumulatorFilter(){
 		val = GHETTO_VAL;
 		upSpeed = 0.5f;
 	}
@@ -25,7 +25,7 @@ public:
 	}
 
 	void goUp(){
-		Serial.println( "goUP!");
+		//Serial.println( "goUP!");
 		if (val <= GHETTO_VAL){
 			val = GHETTO_VAL;
 		}
@@ -33,7 +33,7 @@ public:
 	}
 
 	void goDown(){
-		Serial.println( "goDown!");
+		//Serial.println( "goDown!");
 		if (val >= 1.0f - GHETTO_VAL){
 			val = 1.0f - GHETTO_VAL;
 		}

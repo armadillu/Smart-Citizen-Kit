@@ -15,7 +15,7 @@
 		BB930517175C9FB500EC0935 /* TimerOne.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TimerOne.cpp; sourceTree = "<group>"; };
 		BB930518175C9FB500EC0935 /* TimerOne.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = TimerOne.h; sourceTree = "<group>"; };
 		BB930519175C9FB500EC0935 /* updateSensors.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = updateSensors.ino; sourceTree = "<group>"; };
-		BB9BD8841764FDF400784FBF /* GhettoFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GhettoFilter.h; sourceTree = "<group>"; };
+		BB9BD8841764FDF400784FBF /* AccumulatorFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccumulatorFilter.h; sourceTree = "<group>"; };
 		BBEBA598175CF85E0025F765 /* TemperatureDecoupler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureDecoupler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -28,7 +28,7 @@
 				BB930514175C9FB500EC0935 /* ServerUpdate.ino */,
 				BB930515175C9FB500EC0935 /* SmartCitizenAmbient.cpp */,
 				BBEBA598175CF85E0025F765 /* TemperatureDecoupler.h */,
-				BB9BD8841764FDF400784FBF /* GhettoFilter.h */,
+				BB9BD8841764FDF400784FBF /* AccumulatorFilter.h */,
 				BB930516175C9FB500EC0935 /* SmartCitizenAmbient.h */,
 				BB930517175C9FB500EC0935 /* TimerOne.cpp */,
 				BB930518175C9FB500EC0935 /* TimerOne.h */,

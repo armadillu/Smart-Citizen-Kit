@@ -9,10 +9,10 @@
 #ifndef SmartCitizen_TemperatureDecoupler_h
 #define SmartCitizen_TemperatureDecoupler_h
 
-#define BATTERY_HEATUP_MAX	11
-
+#define BATTERY_HEATUP_MAX			11
+#define BATTERY_CHARGE_THRESHOLD	980
 #include <Arduino.h>
-#include "GhettoFilter.h"
+#include "AccumulatorFilter.h"
 
 
 class TemperatureDecoupler{
@@ -26,25 +26,25 @@ class TemperatureDecoupler{
 
 	void update( uint16_t battery ){
 
-		Serial.println( "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #" );
+		//Serial.println( "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #" );
 
 		bool charging = false;
 		bool doNothing = false;
 		if (battery == _prevBattery){
 			//doNothing;
-			if ( battery > 980 ){
+			if ( battery > BATTERY_CHARGE_THRESHOLD ){
 				charging = true;
-				Serial.println( "Battery same val > 980! charging!");
+				//Serial.println( "Battery same val > 980! charging!");
 			}else{
 				charging = false;
-				Serial.println( "Battery same val < 980! NOT charging!");
+				//Serial.println( "Battery same val < 980! NOT charging!");
 			}
 		}else{
-			if ( battery > _prevBattery || battery > 980 ){ //battery is charging!
-				Serial.println( "Battery charging!");
+			if ( battery > _prevBattery || battery > BATTERY_CHARGE_THRESHOLD ){ //battery is charging!
+				//Serial.println( "Battery charging!");
 				charging = true;
 			}else{ //battery is being drained
-				Serial.println( "Battery dis-charging!");
+				//Serial.println( "Battery dis-charging!");
 				charging = false;
 			}
 		}
@@ -56,11 +56,11 @@ class TemperatureDecoupler{
 				filter.goDown();
 		}
 
-		Serial.print(F("battery: ")); Serial.println( battery );
-		Serial.print(F("_prevBattery: ")); Serial.println( _prevBattery );
-		Serial.print(F("filter: ")); Serial.println( filter.getVal() );
+		//Serial.print(F("battery: ")); Serial.println( battery );
+		//Serial.print(F("_prevBattery: ")); Serial.println( _prevBattery );
+		//Serial.print(F("filter: ")); Serial.println( filter.getVal() );
 
-		Serial.println( "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #" );
+		//Serial.println( "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #" );
 		//store last bat reading for future comparing
 		_prevBattery = battery;
 		lastChargingState = charging;
@@ -71,7 +71,7 @@ class TemperatureDecoupler{
 	}
 
 	short int _prevBattery;
-	GhettoFilter filter;
+	AccumulatorFilter filter;
 	bool lastChargingState; //true == up, false == down
 
 };
